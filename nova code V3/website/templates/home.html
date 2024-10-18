@@ -1,0 +1,162 @@
+<!--The layout.html template is used-->
+{% extends "layout.html" %}
+
+<!--The webpage titled is established-->
+{% block title %}Main menu{% endblock %}
+
+<!--The contents of block content are unique to this webpage-->
+{% block content %}
+
+<!--CSS-->
+<style>
+
+    /*used to seperate the webpage into sections*/
+    .separator {
+    height: 2px;
+    background-color: #ccc;
+    margin: 20px 0;
+    }
+
+    /*pads the bottom of the page*/
+    body {
+    padding-bottom: 50px;
+    }
+
+</style>
+
+<!--Page title-->
+<br><br>
+<h1 align="center"><b>Today's to-do-list</b></h1>
+<br><br>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 mx-auto">
+            <nav class="navbar navbar-expand navbar-light bg-light">
+                
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    <span 
+                        class="navbar-toggler-icon"
+                        >
+                    </span>
+                </button>
+
+                <div class="navbar-nav mx-auto">
+                    <a 
+                        class="nav-item nav-link" 
+                        id="Today" 
+                        href="/today"
+                        >
+                        Today
+                    </a>
+                    <a 
+                        class="nav-item nav-link" 
+                        id="Upcoming" 
+                        href="/upcoming"
+                        >
+                        Upcoming
+                    </a>
+                    <a 
+                        class="nav-item nav-link" 
+                        id="Starred" 
+                        href="/starred"
+                        >
+                        Starred
+                    </a>
+                </div>
+
+            </nav>
+        </div>
+    </div>
+</div>
+<br><br>
+
+<!--Method used for adding tasks to the website-->
+<form method="POST">
+
+    <!--used to add tasks-->
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+
+                <!--text field for new tasks-->
+                <div class="form-floating mb-3">
+                    <textarea 
+                        name="task" 
+                        id="task" 
+                        class="form-control"
+                        placeholder="New Task"
+                        >
+                    </textarea>
+                    <label for="task">
+                        New Task
+                    </label>
+                </div>
+                <br><br>
+
+                <!--submission of new tasks-->
+                <div align="center">
+                    <button 
+                        type="submit" 
+                        class="btn btn-primary"
+                        >
+                        Add task
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</form>
+
+<br><br>
+<h6 align="center">Order by:</h6>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 mx-auto">
+            <nav class="navbar navbar-expand navbar-light bg-light">
+                
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    <span 
+                        class="navbar-toggler-icon"
+                        >
+                    </span>
+                </button>
+
+                <div class="navbar-nav mx-auto">
+                    <a 
+                        class="nav-item nav-link" 
+                        id="duration" 
+                        href="/duration"
+                        >
+                        Duration
+                    </a>
+                    <a 
+                        class="nav-item nav-link" 
+                        id="date" 
+                        href="/date"
+                        >
+                        Date
+                    </a>
+                    <a 
+                        class="nav-item nav-link" 
+                        id="Priority" 
+                        href="/priority"
+                        >
+                        Priority
+                    </a>
+                </div>
+
+            </nav>
+        </div>
+    </div>
+</div>
+<br><br>
+
+{% endblock %}

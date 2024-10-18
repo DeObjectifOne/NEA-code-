@@ -1,0 +1,51 @@
+<!--The layout.html template is used-->
+{% extends "layout.html" %}
+
+<!--The webpage titled is established-->
+{% block title %}Name{% endblock %}
+
+<!--The contents of block content are unique to this webpage-->
+{% block content %}
+
+<form method="POST">
+
+    <!--Page title-->
+    <br><br>
+    <h1 align="center"><b>One last question!</b></h1>
+    <br><br>
+    <h6 align="center">Before you get started, we just need your name...</h6>
+    <br><br>
+
+    <!--Used to styalise the input fields with BootStrap-->
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <form>
+
+                    <!--input field for the user's na,e-->
+                    <!--made so that the email can act as a placeholder-->
+                    <!--When the user tries to make an input, the placeholder is moved up-->
+                    <div class="form-floating mb-3">
+                        <input 
+                            type="name" 
+                            class="form-control" 
+                            id="name" 
+                            placeholder="name">
+                        <label for="name">Enter your Name...</label>
+                    </div>
+
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!--Submission box-->
+    <br><br>
+    <div class="d-flex justify-content-center">
+        <button type="submit" class="btn btn-primary">Go to main page</button>
+    </div>
+
+</form>
+
+{% endblock %}
