@@ -1,0 +1,185 @@
+<!--The layout.html template is used-->
+{% extends "layout.html" %}
+
+<!--The webpage titled is established-->
+{% block title %}Account Page{% endblock %}
+
+<!--The contents of block content are unique to this webpage-->
+{% block content %}
+
+<form method="POST">
+
+    <!--CSS-->
+    <style>
+
+        /*used to seperate the webpage into sections*/
+        .separator {
+          height: 2px;
+          background-color: #ccc;
+          margin: 20px 0;
+        }
+
+        /*pads the bottom of the page*/
+        body {
+        padding-bottom: 50px;
+        }
+
+    </style>
+
+    <!--Page title-->
+    <br><br>
+    <h1 align="center"><b>Settings</b></h1>
+    <br><br>
+
+    <!--made as a class so it can be reused repeatedly-->
+    <div class="separator"></div>
+    <br><br>
+
+    <h6 align="center">Change Theme</h6>
+    <br><br>
+
+    <!--a dropdown button-->
+    <!--can be used to change a user's theme-->
+    <!--the options given are either light or dark mode-->
+
+    <!--Styles the button to be a block button-->
+    <!--makes it centered so it adjust with the page width-->
+    <div class="d-flex justify-content-center">
+        <div class="col-md-10">
+            <div class="dropdown">
+                
+                <!--button used to access the dropdown menu-->
+                <button 
+                    class="btn btn-outline-secondary dropdown-toggle w-100" 
+                    type="button" 
+                    id="theme_menu" 
+                    data-bs-toggle="dropdown" 
+                    aria-expanded="false">
+                    Change theme
+                </button>
+
+                <!--the buttons are the same width as the drpodown menu-->
+                <!--This is to add consistency to the style-->
+                <ul class="dropdown-menu w-100">
+                    <li>
+                        <form method="POST" >
+
+                            <button 
+                                type="button" 
+                                class="btn btn-outline-secondary w-100">
+                                Light Mode
+                            </button>
+
+                            <button 
+                                type="button" 
+                                class="btn btn-outline-secondary w-100">
+                                Dark Mode
+                            </button>
+                        
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <br><br>
+
+    <!-- Separator with CSS styling -->
+    <div class="separator"></div>
+    <br><br>
+
+    <h6 align="center">Account Settings</h6>
+    <br><br>
+
+    <!--Logout button-->
+    <div class="d-flex justify-content-center">
+        <div class="col-md-10">
+            <button type="button" class="btn btn-outline-secondary btn-lg w-100">Logout</button>
+        </div>
+    </div>
+    <br><br>
+
+    <!--a dropdown button-->
+    <!--can be used to change a user's account details-->
+
+    <!--Styles the button to be a block button-->
+    <!--makes it centered so it adjust with the page width-->
+    <div class="d-flex justify-content-center">
+        <div class="col-md-10">
+            <div class="dropdown">
+                
+                <!--button used to access the dropdown menu-->
+                <button 
+                    class="btn btn-outline-secondary dropdown-toggle w-100" 
+                    type="button" 
+                    id="change_menu" 
+                    data-bs-toggle="dropdown" 
+                    aria-expanded="false">
+                    Change account details
+                </button>
+
+                <!--The input boxes are adjusted to fit the width of the dropdown box-->
+                <!--This is to add consistency to the style-->
+                <ul class="dropdown-menu w-100">
+                    <li>
+                        <form method="POST">
+
+                            <div class="form-floating mb-10">
+                                <input 
+                                    type="email" 
+                                    class="form-control" 
+                                    id="email" 
+                                    placeholder="Email">
+                                <label for="email">
+                                    Enter your Email...
+                                </label>
+                            </div>
+                            
+                            <div class="form-floating mb-10">
+                                <input 
+                                    type="password" 
+                                    class="form-control" 
+                                    id="password" 
+                                    placeholder="Password">
+                                <label for="password">
+                                    Enter your Password...
+                                </label>
+                            </div>
+
+                            <div class="form-floating mb-10">
+                                <input 
+                                    type="name" 
+                                    class="form-control" 
+                                    id="name" 
+                                    placeholder="Name">
+                                <label for="password">
+                                    Enter your name...
+                                </label>
+                            </div>
+
+                            <button 
+                                type="submit" 
+                                class="btn btn-primary w-100">
+                                Submit
+                            </button>
+
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <br><br>
+
+
+    <!--delete account button-->
+    <div class="d-flex justify-content-center">
+        <div class="col-md-10">
+            <button type="button" class="btn btn-danger btn-lg w-100">Delete Account</button>
+        </div>
+    </div>  
+
+</form>
+
+{% endblock %}
+

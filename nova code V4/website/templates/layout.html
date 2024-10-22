@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" 
+          content="width=device-width, initial-scale=1.0">
+          
+    <title>{% block title %}Home{% endblock %}</title>
+
+      <!--Below are 3 BootStrap CSS libraries I have imported-->
+
+      <!--BootStrap CSS-->
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" 
+            rel="stylesheet" 
+            integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" 
+            crossorigin="anonymous">
+
+      <!--Bootstrap Icons-->
+      <link rel="stylesheet" 
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
+      <!--Databases (CSS)-->
+      <link rel="stylesheet" 
+            href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
+
+      <link 
+            href="{{ url_for('static', filename='custom.css') }}" 
+            rel="stylesheet"
+      >
+
+</head>
+<body>
+
+      <!--Navbar that will apply across all webpages-->
+      <!--Establishes the class and its color-->
+      <nav class="navbar navbar-expand-lg navbar-grey bg-light">
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbar"
+                aria-controls="navbar"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+            >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!--Makes the navbar a dropdown box when the screen is minimised-->
+            <!--All the navbar options are displayed below-->
+            <div class="collapse navbar-collapse" id="navbar">
+                <div class="navbar-nav">
+                    <a 
+                        class="nav-item nav-link" 
+                        id="home" href="/">Home</a>
+                    <a 
+                        class="nav-item nav-link" 
+                        id="settings" 
+                        href="/settings">Settings</a>
+                    <a 
+                        class="nav-item nav-link" 
+                        id="login" href="/login">Login</a>
+                    <a 
+                        class="nav-item nav-link" 
+                        id="signUp" 
+                        href="/sign-up">Sign Up</a>
+                </div>
+            </div>
+      </nav>
+
+      <!--This is to flash error/success messages at the user-->
+      {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+          {% for category, message in messages %}
+              {% if category == 'error' %}
+
+              <!--Creates a template for displaying messages that are able to be dismissed-->
+              <!--This class specifically is used for showing error messages-->
+              <div 
+                  class="alert alert-danger alert-dismissable fade show" 
+                  role="alert"
+                  >
+                  {{ message }}
+                  <button 
+                        type="button" 
+                        class="close" 
+                        data-dismiss="alert"
+                        >
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+
+              <!--This class is used to show if the user was successful in their inputs-->
+              {% elif category == 'success' %}
+              <div 
+                  class="alert alert-success alert-dismissable fade show" 
+                  role="alert"
+                  >
+                  {{ message }}
+                  <button 
+                        type="button" 
+                        class="close" 
+                        data-dismiss="alert"
+                        >
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+
+              {% endif%}
+          {% endfor %}
+      {% endif %}
+      {% endwith %}
+
+
+      <!--Used to render uique .html documents for said webpage-->
+      {% block content %}{% endblock %}
+
+      <!--Below are 4 BootStrap JavaScript libraries I have imported-->
+
+      <!--BootStrap JavaScript-->
+      <script 
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" 
+            crossorigin="anonymous"></script>
+
+      <!--React-Bootstrap-->
+      <script src="https://cdn.jsdelivr.net/npm/react-bootstrap@2.3.0/dist/react-bootstrap.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/react@17/umd/react.production.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/react-dom@17/umd/react-dom.production.min.js"></script>
+
+      <!--jQuery-->
+      <script 
+            src="https://code.jquery.com/jquery-3.6.0.min.js" 
+            integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl5/4HIJp17H5o2a8H3y20K2+HdG6c5J4A/EWn19ZjM" 
+            crossorigin="anonymous"></script>
+
+      <!--Databases (JavaScript)-->
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+
+      <!--Popper.js-->
+      <script 
+            src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" 
+            integrity="sha384-O8Vu1pQfjr1qSCV3lfJpEEBqgqPz5/22fy7upS1cz1czcf6lKyt8c4H5MgHOMgC" 
+            crossorigin="anonymous"></script>
+
+      <!--importing of JavaScript-->
+      <script 
+            type="text/javascript"
+            src="{{ url_for('static', filename='index.js')}}"
+      ></script>
+      
+</body>
+</html>
