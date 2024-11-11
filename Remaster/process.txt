@@ -1,0 +1,13 @@
+Steps:
+
+#Prologue: establish main.py as the app's entry point
+
+#1. Focus on __init__.py and create the settings
+#2. Creates the schemas for user.py and task.py
+#3. Go to views.py and begin creating routes
+#4. create a base template in base.html
+#5. set up home.html and settings.html
+#6. Use db.py to establish a connection to my SQLite file
+#7. Use SQLAlchemy to perform queries on my SQLite tables
+#8. Set up light and dark mode in style.css
+#9. Code in index.js to add dynamicy to webpages
